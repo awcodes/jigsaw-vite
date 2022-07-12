@@ -1,0 +1,52 @@
+{
+    "name": "jigsaw-vite-plugin",
+    "version": "0.3.0",
+    "description": "Jigsaw plugin for Vite.",
+    "keywords": [
+        "tighten",
+        "jigsaw",
+        "vite",
+        "vite-plugin"
+    ],
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/awcodes/jigsaw-vite-plugin"
+    },
+    "license": "MIT",
+    "author": {
+        "name": "Adam Weston",
+        "email": "awcodes1@gmail.com",
+        "url": "https://www.awcodes.com"
+    },
+    "main": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "files": [
+        "/dist"
+    ],
+    "scripts": {
+        "build": "npm run build-plugin",
+        "build-plugin": "rm -rf dist && tsc && cp src/dev-server-index.html dist/",
+        "lint": "eslint --ext .ts ./src ./tests",
+        "ssr:serve": "vite build --ssr && node storage/ssr/ssr.js",
+        "test": "vitest run"
+    },
+    "devDependencies": {
+        "@types/node": "^17.0.31",
+        "@typescript-eslint/eslint-plugin": "^5.21.0",
+        "@typescript-eslint/parser": "^5.21.0",
+        "eslint": "^8.14.0",
+        "picocolors": "^1.0.0",
+        "typescript": "^4.6.4",
+        "vite": "^2.9.6",
+        "vitest": "^0.12.4"
+    },
+    "peerDependencies": {
+        "vite": "^2.9.9"
+    },
+    "engines": {
+        "node": ">=14"
+    },
+    "dependencies": {
+        "vite-plugin-full-reload": "^1.0.1"
+    }
+}
